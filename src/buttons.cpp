@@ -2,6 +2,7 @@
 #include <vector>
 
 namespace bot {
+    bool mid_scoring_status = false;
     void display_temperature() {
         double max_left_temp = 0.0, max_right_temp = 0.0;
         // list of left drivetrain motors
@@ -52,17 +53,20 @@ namespace bot {
         }
         void stop_intaking(){
             lower.stop();
+            upper.stop();
         }
         void score_upper(){
+            bot::intake_methods::stop_intaking();
             upper.spin(forward, 100, percent);
-            mid.spin(forward, 100, percent);
+            lower.spin(forward, 100, percent);
         }
         void stop_scoring_upper(){
             upper.stop();
-            mid.stop();
+            lower.stop();
         }
         void outtake(){
             lower.spin(reverse, 100, percent);
+
         }
         void stop_outtaking(){
             lower.stop();

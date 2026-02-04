@@ -9,6 +9,8 @@
 
 #include "vex.h"
 #include "bot/bot.hpp"
+#include "buttons.hpp"
+#include "auton.hpp"
 
 using namespace vex;
 
@@ -46,6 +48,8 @@ void autonomous(void) {
   // ..........................................................................
   // Insert autonomous user code here.
   // ..........................................................................
+  bot::autons::skills();
+  return;
 }
 
 /*---------------------------------------------------------------------------*/
@@ -111,8 +115,8 @@ void usercontrol(void) {
     right_joystick = sqrt(rightY * rightY + rightX * rightX);
 
 
-    left_joystick = A * std::pow(B, left_joystick) + C;
-    right_joystick = A * std::pow(B, right_joystick) + C;
+    //left_joystick = A * std::pow(B, left_joystick) + C;
+    //right_joystick = A * std::pow(B, right_joystick) + C;
 
     // deadzone adjustment
     if (fabs(left_joystick) < CONTROLLER_DEADZONE) left_joystick = 0.0;

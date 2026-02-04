@@ -1,7 +1,6 @@
 #pragma once
 
 #include "bot/bot.hpp"
-#include "bot/imu.hpp"
 #include "bot/pid.hpp"
 #include "location.hpp"
 
@@ -12,7 +11,7 @@ class Drivetrain {
         Drivetrain(
             vex::motor_group& left_dt,
             vex::motor_group& right_dt,
-            bot::Inertial& imu
+            vex::inertial& imu
         );
         void tank_drive(double left_speed, double right_speed);
         void arcade_drive(double fwd, double turn);
@@ -22,13 +21,14 @@ class Drivetrain {
         void hold();
 
         void drive_for(double distance, double timeout, double speed_limit, double target_heading);
+        void drive(double distance, double timeout, double speed_limit, double target_heading);
         void turn_to_heading(double heading, double timeout, double speed_limit);
 
 
     private:
         vex::motor_group& _left_dt;
         vex::motor_group& _right_dt;
-        bot::Inertial& _imu;
+        vex::inertial& _imu;
         double _wheel_diameter;
         double _track_width;
         double _gear_ratio;

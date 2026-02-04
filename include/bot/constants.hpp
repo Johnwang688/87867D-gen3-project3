@@ -4,13 +4,13 @@
 constexpr double PI = 3.14159265358979323846;
 
 // PID constants
-constexpr double DRIVE_KP = 0.10;
+constexpr double DRIVE_KP = 0.18;
 constexpr double DRIVE_KI = 0.01;
 constexpr double DRIVE_KD = 0.001;
 
-constexpr double TURN_KP = 0.4;
-constexpr double TURN_KI = 0.01;
-constexpr double TURN_KD = 0.001;
+constexpr double TURN_KP = 0.45;
+constexpr double TURN_KI = 0.0;
+constexpr double TURN_KD = 0.03;
 
 constexpr double ARC_KP = 0.08;
 constexpr double ARC_KI = 0.01;
@@ -21,9 +21,9 @@ constexpr double MAX_OUTPUT = 100.0;
 constexpr double DT = 0.02; // seconds 
 
 // pure pursuit constants
-constexpr double HEADING_KP = 0.02;
+constexpr double HEADING_KP = 1.35;
 constexpr double HEADING_KI = 0.001;
-constexpr double HEADING_KD = 0.0001;
+constexpr double HEADING_KD = 0.02;
 
 
 constexpr double K_SLOW = 0.40;
@@ -33,11 +33,11 @@ constexpr double PP_DT = 0.05;
 
 //mm
 constexpr double WHEEL_DIAMETER = 88.25;
-constexpr double TRACK_WIDTH = 330.0;
+constexpr double TRACK_WIDTH = 300.0;
 constexpr double WHEEL_CIRCUMFERENCE = WHEEL_DIAMETER * M_PI;
 
 // Gear ratio is output speed / input speed
-constexpr double GEAR_RATIO = 400.0/600.0;
+constexpr double GEAR_RATIO = 450.0/600.0;
 constexpr double MM_PER_TICK = (WHEEL_CIRCUMFERENCE / 360.0) * GEAR_RATIO;
 
 // Maximum voltage to apply to motors
@@ -52,7 +52,7 @@ constexpr double MAX_ACCEL = 3.5;
 
 // driver sens constants
 constexpr double A = 2.0;
-constexpr double B = 1.04;
+constexpr double B = 1.055;
 constexpr double C = -A;
 
 // Particle filter constants

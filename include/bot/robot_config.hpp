@@ -1,5 +1,6 @@
 #pragma once
 #include "vex.h"
+#include "bot/imu.hpp"
 
 namespace bot {
 
@@ -20,11 +21,18 @@ namespace bot {
 
     namespace sensors {
         
-        extern bot::Inertial imu;
+        extern vex::inertial imu;
 
         extern vex::distance left_dist_fwd; extern vex::distance left_dist_aft;
         extern vex::distance right_dist_fwd; extern vex::distance right_dist_aft;
         extern vex::distance front_dist_left; extern vex::distance front_dist_right;
         extern vex::distance back_dist_left; extern vex::distance back_dist_right;
+    }
+
+    namespace pistons {
+        extern vex::digital_out arm_piston;
+        extern vex::digital_out match_load_piston;
+        extern void toggle_arm_piston();
+        extern void toggle_match_load_piston();
     }
 }
